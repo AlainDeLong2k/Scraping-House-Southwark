@@ -55,6 +55,7 @@ class SaveToSQLitePipeline:
 
     def process_item(self, item, spider):
         ## Define insert statement
+        self.id += 1
         self.cursor.execute(
             """
             INSERT INTO houses_list VALUES(?, ?, ?, ?, ?, ?)
