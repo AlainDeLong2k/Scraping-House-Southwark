@@ -26,7 +26,8 @@
 ## Technologies Used  
 
 - Python  
-- Scrapy  
+- Scrapy
+- Scrapeops to fake header
 
 ## Storing Data in SQLite  
 
