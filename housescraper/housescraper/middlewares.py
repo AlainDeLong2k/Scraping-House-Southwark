@@ -162,6 +162,3 @@ class ScrapeOpsFakeBrowserHeaderAgentMiddleware:
         request.headers["upgrade-insecure-requests"] = random_browser_header.get(
             "upgrade-insecure-requests"
         )
-
-        # print("************ NEW HEADER ATTACHED *******")
-        # print(request.headers)

@@ -19,13 +19,6 @@ class HousespiderSpider(scrapy.Spider):
         property_items = data["results"]["properties"]
 
         for item in property_items:
-            # yield {
-            #     "address": item["address"],
-            #     "type": item["propertyType"],
-            #     "transactions": item["transactions"],
-            #     "location": item["location"],
-            #     "url": item["detailUrl"],
-            # }
             house_item = HousescraperItem()
             house_item["address"] = item["address"]
             house_item["description"] = item["propertyType"]

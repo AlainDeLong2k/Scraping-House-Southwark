@@ -10,40 +10,21 @@ import sqlite3
 from datetime import datetime
 
 
-# def convert_month(month):
-#     if month=='Jan':
-#         return
-
-
 class HousescraperPipeline:
     def process_item(self, item, spider):
-        adapter = ItemAdapter(item)
-
-        ## Remove currency and convert price to float
-        print("***********")
-        transactions = adapter.get("transactions")
-        for transaction in transactions:
-            value = transaction["displayPrice"].replace("£", "")
-            value = value.replace(",", "")
-            value = float(value)
-            date = transaction["dateSold"]
-            date_obj = datetime.strptime(date, "%d %b %Y")
-            formatted_date = date_obj.strftime("%d-%m-%Y")
-            print(formatted_date)
-            print(value)
-        print("***********")
-
-        ## Change to format DD-MM-YYYY
+        return item
 
 
 class SaveToSQLitePipeline:
     def __init__(self):
+        ## Create cursor, used to execute commands
         self.connect = sqlite3.connect("demo.db")
         self.cursor = self.connect.cursor()
         self.id: int = 0
         self.create_tables()
 
     def create_tables(self):
+        ## Create houses list table if none exists
         self.cursor.execute(
             """
             CREATE TABLE IF NOT EXISTS houses_list(
@@ -57,9 +38,10 @@ class SaveToSQLitePipeline:
             """
         )
 
+        ## Create house sales table if none exists
         self.cursor.execute(
             """
-            CREATE TABLE house_sales(
+            CREATE TABLE IF NOT EXISTS house_sales(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 house_id INTEGER,
                 display_price REAL,
@@ -72,8 +54,6 @@ class SaveToSQLitePipeline:
         )
 
     def process_item(self, item, spider):
-        self.id += 1
-        print(self.id)
         ## Define insert statement
         self.cursor.execute(
             """
@@ -112,5 +92,6 @@ class SaveToSQLitePipeline:
         return item
 
     def close_spider(self, spider):
+        ## Close cursor & connection to database
         self.cursor.close()
         self.connect.close()
