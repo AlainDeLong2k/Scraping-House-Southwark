@@ -23,7 +23,7 @@ SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = (
     "http://headers.scrapeops.io/v1/browser-headers?"
 )
 SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
-SCRAPEOPS_NUM_RESULTS = 50
+SCRAPEOPS_NUM_RESULTS = 5
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = "housescraper (+http://www.yourdomain.com)"
