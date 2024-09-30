@@ -27,7 +27,7 @@
 
 - Python  
 - Scrapy
-- Scrapeops to fake browser header
+- ScrapeOps to fake browser header
 
 ## Storing Data in SQLite  
 
