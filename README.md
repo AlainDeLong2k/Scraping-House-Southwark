@@ -85,3 +85,20 @@ To implement this, you will:
 3. Insert the scraped data into the appropriate tables after each scrape.  
 
 This structured storage in SQLite will allow for easy querying and analysis of the housing data collected over the past 5 years.
+
+## Data Storage Formats  
+
+After the scraping process is completed, the collected data will be saved in two formats: JSON and SQLite. This ensures data accessibility for various needs and analysis.  
+
+### File Formats  
+
+1. **SQLite Database**: The scraped data will be stored in an SQLite database file named `house_southwark_data.db`. This database will contain the two tables discussed previously (`houses_list` and `house_sales`), allowing for efficient data retrieval and management.  
+
+2. **JSON File**: The same data will also be saved in a JSON file named `house_southwark_data.json`. JSON format provides a lightweight and easily readable structure that can be used for data interchange and is compatible with many programming languages and tools.  
+
+### Accessing the Data  
+
+- To view or analyze the data in the SQLite database, you can use SQLite database management tools like DB Browser for SQLite or sqlite3 command-line utility.  
+- The JSON file can be opened and manipulated using any text editor, or it can be processed programmatically using various programming languages that support JSON parsing (such as Python, JavaScript, etc.).  
+
+This dual-format storage strategy provides flexibility for users, whether they prefer working with databases or simple file formats for data analysis or application development.
