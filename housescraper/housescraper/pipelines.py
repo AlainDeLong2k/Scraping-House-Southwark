@@ -18,7 +18,7 @@ class HousescraperPipeline:
 class SaveToSQLitePipeline:
     def __init__(self):
         ## Create cursor, used to execute commands
-        self.connect = sqlite3.connect("demo.db")
+        self.connect = sqlite3.connect("house_southwark.db")
         self.cursor = self.connect.cursor()
         self.id: int = 0
         self.create_tables()

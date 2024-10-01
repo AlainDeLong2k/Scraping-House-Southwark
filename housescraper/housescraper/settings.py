@@ -18,6 +18,8 @@ BOT_NAME = "housescraper"
 SPIDER_MODULES = ["housescraper.spiders"]
 NEWSPIDER_MODULE = "housescraper.spiders"
 
+FEEDS = {"house_southwark_data.json": {"format": "json", "overwrite": True}}
+
 SCRAPEOPS_API_KEY = os.getenv("SCRAPEOPS_API_KEY")
 SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = (
     "http://headers.scrapeops.io/v1/browser-headers?"
